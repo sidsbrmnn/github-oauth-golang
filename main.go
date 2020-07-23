@@ -107,7 +107,7 @@ func getGithubAccessToken(code string) string {
 func getGithubUserData(accessToken string) *GithubUserData {
 	req, err := http.NewRequest(http.MethodGet, "https://api.github.com/user", nil)
 	if err != nil {
-		log.Fatalln("Failed to create a request", err)
+		log.Panicln("Failed to create a request", err)
 	}
 
 	req.Header.Set("Authorization", "token "+accessToken)
